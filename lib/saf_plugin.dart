@@ -22,7 +22,7 @@ class SAFPlugin {
   }
 
   static Future<Uint8List?> openFile() async {
-    if (Platform.isIOS) {
+    if (Platform.isIOS || Platform.isWindows) {
       try {
         final result = await FilePicker.pickFile();
         return await result!.readAsBytes();
